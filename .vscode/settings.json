@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/1e7c316b-b212-4874-97ef-c982a9baf6ed/resourceGroups/VehicleManagementSystemReact/providers/Microsoft.Web/sites/VehicleManagementSystemClient",
+    "appService.deploySubpath": ""
+}
