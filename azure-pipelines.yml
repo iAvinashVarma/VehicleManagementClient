@@ -20,16 +20,9 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: ArchiveFiles@2
+- task: PublishPipelineArtifact@1
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
-    
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'VehicleManagementClientDrop'
-    publishLocation: 'Container'
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'drop'
+    publishLocation: 'pipeline'
+
