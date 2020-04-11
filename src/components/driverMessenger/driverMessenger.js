@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-
+import Header from '../layout/header';
 
 class DriverMessenger extends Component {
   render() {
     return(
-      <div><h1>DriverMessenger Screen</h1></div>
+      <div>
+        <Header title="Driver Messenger"/>
+      </div>
     )
   }
 }

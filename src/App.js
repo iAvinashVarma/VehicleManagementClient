@@ -13,16 +13,16 @@ class App extends Component {
             <Navigation>
                 <Link to="/vehicle"><i className="fa fa-bus" aria-hidden="true" /> Vehicle</Link>
                 <Link to="/driver"><i className="fa fa-user-o" aria-hidden="true" /> Driver</Link>
-                <Link to="/projects"><i className="fa fa-television" aria-hidden="true" /> Vehicle Monitor</Link>
-                <Link to="/contact"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messenger</Link>
+                <Link to="/vehicleMonitor"><i className="fa fa-television" aria-hidden="true" /> Vehicle Monitor</Link>
+                <Link to="/driverMessenger"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messenger</Link>
             </Navigation>
         </Header>
         <Drawer title={<Link style={{textDecoration: 'none', color: 'black'}} to="/"><i className="fa fa-truck" aria-hidden="true" /> VMS</Link>}>
             <Navigation>
               <Link to="/vehicle"><i className="fa fa-bus" aria-hidden="true" /> Vehicle</Link>
               <Link to="/driver"><i className="fa fa-user-o" aria-hidden="true" /> Driver</Link>
-              <Link to="/projects"><i className="fa fa-television" aria-hidden="true" /> Vehicle Monitor</Link>
-              <Link to="/contact"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messenger</Link>
+              <Link to="/vehicleMonitor"><i className="fa fa-television" aria-hidden="true" /> Vehicle Monitor</Link>
+              <Link to="/driverMessenger"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messenger</Link>
             </Navigation>
         </Drawer>
         <Content>

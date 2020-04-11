@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-
+import Header from '../layout/header';
+import VehicleMonitorData from './vehicleMonitorData';
 
 class VehicleMonitor extends Component {
   render() {
     return(
-      <div><h1>VehicleMonitor Screen</h1></div>
+      <div>
+        <Header title="Vehicle Monitor"/>
+        <VehicleMonitorData/>
+      </div>
     )
   }
 }
