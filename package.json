@@ -1,0 +1,31 @@
+{
+  "name": "vehiclemanagementsystem",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.13.1",
+    "react-mdl": "^1.11.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "description": "Vehicle Management System",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iAvinashVarma/VehicleManagementSystem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iAvinashVarma/VehicleManagementSystem/issues"
+  },
+  "homepage": "https://github.com/iAvinashVarma/VehicleManagementSystem#readme"
+}
