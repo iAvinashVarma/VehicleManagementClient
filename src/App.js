@@ -9,20 +9,20 @@ class App extends Component {
     return (
       <div className="demo-big-content">
     <Layout>
-        <Header className="header-color" title={<Link style={{textDecoration: 'none', color: 'white'}} to="/">Vehicle Management System</Link>} scroll>
+        <Header className="header-color" title={<Link style={{textDecoration: 'none', color: 'white'}} to="/"><i className="fa fa-truck" aria-hidden="true" /> Vehicle Management System</Link>} scroll>
             <Navigation>
-                <Link to="/vehicle">Vehicle</Link>
-                <Link to="/driver">Driver</Link>
-                <Link to="/projects">Vehicle Monitor</Link>
-                <Link to="/contact">Driver Messenger</Link>
+                <Link to="/vehicle"><i className="fa fa-bus" aria-hidden="true" /> Vehicle</Link>
+                <Link to="/driver"><i className="fa fa-user-o" aria-hidden="true" /> Driver</Link>
+                <Link to="/projects"><i className="fa fa-television" aria-hidden="true" /> Vehicle Monitor</Link>
+                <Link to="/contact"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messenger</Link>
             </Navigation>
         </Header>
-        <Drawer title={<Link style={{textDecoration: 'none', color: 'black'}} to="/">VMS</Link>}>
+        <Drawer title={<Link style={{textDecoration: 'none', color: 'black'}} to="/"><i className="fa fa-truck" aria-hidden="true" /> VMS</Link>}>
             <Navigation>
-              <Link to="/vehicle">Vehicle</Link>
-              <Link to="/driver">Driver</Link>
-              <Link to="/projects">Vehicle Monitor</Link>
-              <Link to="/contact">Driver Messenger</Link>
+              <Link to="/vehicle"><i className="fa fa-bus" aria-hidden="true" /> Vehicle</Link>
+              <Link to="/driver"><i className="fa fa-user-o" aria-hidden="true" /> Driver</Link>
+              <Link to="/projects"><i className="fa fa-television" aria-hidden="true" /> Vehicle Monitor</Link>
+              <Link to="/contact"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messenger</Link>
             </Navigation>
         </Drawer>
         <Content>

@@ -11,34 +11,14 @@ class Home extends Component {
             <br />
             <br />
             <br />
-
             <div className="banner-text">
               <br />
-              <h1>VMS</h1>
-
+              <h1><i className="fa fa-truck" aria-hidden="true" /> VMS</h1>
               <hr />
-
-              <p>Driver | Vehicle | Vehical Monitor | Driver Messenger</p>
-
-              <div className="social-links">
-
-                <a href="/driver" rel="noopener noreferrer" target="_blank">
-                  <i className="fa fa-user-o" aria-hidden="true" />
-                </a>
-
-                <a href="/vehicle" rel="noopener noreferrer" target="_blank">
-                  <i className="fa fa-bus" aria-hidden="true" />
-                </a>
-
-                <a href="/vehicle" rel="noopener noreferrer" target="_blank">
-                  <i className="fa fa-television" aria-hidden="true" />
-                </a>
-
-                <a href="/driver" rel="noopener noreferrer" target="_blank">
-                  <i className="fa fa-comments-o" aria-hidden="true" />
-                </a>
-
-              </div>
+              <p><i className="fa fa-bus" aria-hidden="true" /> Vehicle </p>
+              <p><i className="fa fa-user-o" aria-hidden="true" /> Driver</p>
+              <p><i className="fa fa-television" aria-hidden="true" /> Vehical Monitor </p>
+              <p><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messenger</p>
               <br />
             </div>
           </Cell>
