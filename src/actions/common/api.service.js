@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const instance = process.env.REACT_APP_ENVIRONMENT === 'dev' ? axios.create({
+    baseURL: process.env.REACT_APP_VMS_HOST,
     headers: {
         "Access-Control-Allow-Origin": "*"
     },
@@ -28,19 +29,18 @@ function httpPostRequest(url, data) {
     });
 }
 
-function httpPutRequest(url, data) {
+function httpPutRequest(url, id, data) {
     return instance({
         method: 'put',
-        url,
+        url: url + '/' + id,
         data
     });
 }
 
-function httpDeleteRequest(url, data) {
+function httpDeleteRequest(url, id) {
     return instance({
         method: 'delete',
-        url,
-        data
+        url: url + '/' + id
     });
 }
 

@@ -7,14 +7,12 @@ export default class AddVehicle extends Component {
     constructor(props) {
         super(props);
         this.nameInput = React.createRef();
-        this.phoneInput = React.createRef();
-        this.ageInput = React.createRef();
-        this.identityInput = React.createRef();
+        this.registrationNumberInput = React.createRef();
     }
 
     state = {
         errors: {},
-        sbumitError: {}
+        submitError: {}
     }
 
     onChange = (e) => {
@@ -43,7 +41,7 @@ export default class AddVehicle extends Component {
                 this.props.history.push('/vehicle');
             })
             .catch(error => {
-                this.setState({ sbumitError: error.message });
+                this.setState({ submitError: error.message });
             })
 
     }
@@ -54,7 +52,7 @@ export default class AddVehicle extends Component {
         return (
             <div>
                 <div class="container-fluid">
-                    <h3 class="text-center my-3">Add Vehicle</h3>
+                    <h3 class="text-center my-3"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add Vehicle</h3>
                 </div>
                 <hr/>
                 <div class="container">

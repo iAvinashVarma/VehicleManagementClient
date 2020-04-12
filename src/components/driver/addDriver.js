@@ -14,7 +14,7 @@ export default class AddDriver extends Component {
 
     state = {
         errors: {},
-        sbumitError: {}
+        submitError: {}
     }
 
     onChange = (e) => {
@@ -55,7 +55,7 @@ export default class AddDriver extends Component {
                 this.props.history.push('/driver');
             })
             .catch(error => {
-                this.setState({ sbumitError: error.message });
+                this.setState({ submitError: error.message });
             })
 
     }
@@ -66,7 +66,7 @@ export default class AddDriver extends Component {
         return (
             <div>
                 <div class="container-fluid">
-                    <h3 class="text-center my-3">Add Driver</h3>
+                    <h3 class="text-center my-3"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add Driver</h3>
                 </div>
                 <hr/>
                 <div class="container">
@@ -86,8 +86,8 @@ export default class AddDriver extends Component {
                             placeholder="Enter Age . . ."
                             value={age}
                             refName={this.ageInput}
-                            label="Phone"
-                            error={errors.phone}
+                            label="Age"
+                            error={errors.age}
                         />
                         <TextInputGroup
                             name="phone"
@@ -99,12 +99,12 @@ export default class AddDriver extends Component {
                             error={errors.phone}
                         />
                         <TextInputGroup
-                            name="Identity"
+                            name="identity"
                             type="text"
                             placeholder="Enter Identity . . ."
                             value={identity}
                             refName={this.identityInput}
-                            label="Identity"
+                            label="identity"
                             error={errors.identity}
                         />
                         <input class="btn btn-primary" type="submit" value="Add Driver"></input>

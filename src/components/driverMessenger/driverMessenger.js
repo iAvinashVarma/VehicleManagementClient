@@ -36,8 +36,8 @@ render() {
                       <div class="row">
                           <div class="col-sm-8"><h2><b>Driver Messages </b> Details</h2></div>
                           <div class="col-sm-4">
-                              <Link to="/vehicle/add">
-                                  <button type="button" href="/vehicle/add" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add Vehicle</button>
+                              <Link to="/driverMessenger/add">
+                                  <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add Driver Message</button>
                               </Link>
                           </div>
                       </div>

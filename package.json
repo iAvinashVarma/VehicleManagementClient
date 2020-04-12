@@ -25,12 +25,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iAvinashVarma/VehicleManagementSystem.git"
+    "url": "git+https://github.com/iAvinashVarma/VehicleManagementClient.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/iAvinashVarma/VehicleManagementSystem/issues"
+    "url": "https://github.com/iAvinashVarma/VehicleManagementClient/issues"
   },
   "homepage": "https://vehiclemanagementsystemclient.azurewebsites.net/",
   "proxy": "https://vehiclemanagementsystemapi.azurewebsites.net"
