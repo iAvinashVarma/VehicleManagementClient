@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 
-class DriverData extends Component {
+class VehicleData extends Component {
 
     onDeleteClick = (id) => {
 
     }
 
     render() {
-        const { _id: id, name, age, phone, identity } = this.props.data;
+        const { _id: id, name, registrationNumber } = this.props.data;
         return (
             <tr id={id}>
                 <td>{name}</td>
-                <td>{age}</td>
-                <td>{phone}</td>
-                <td>{identity}</td>
+                <td>{registrationNumber}</td>
                 <td>
                     <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                     <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -24,4 +22,4 @@ class DriverData extends Component {
     }
 }
 
-export default DriverData;
+export default VehicleData;

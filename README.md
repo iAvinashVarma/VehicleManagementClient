@@ -7,6 +7,21 @@ Vehicle Management System Client that allows the user to create, update and dele
 [![Azure Application Status](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fvehiclemanagementsystemclient.azurewebsites.net)](https://vehiclemanagementsystemclient.azurewebsites.net/)
 [![Firebase Application Status](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fvehiclemanagementsystemclient.web.app)](https://vehiclemanagementsystemclient.web.app/)
 
+## Run Dev Environment
+
+```bash
+$ npm install
+$ npm start
+```
+
+## Run Prod Environment - Static Server
+
+```bash
+$ npm install -g serve
+$ npm run build
+$ server -s build 
+```
+
 ## Firebase
 
 ### Firebase Configuration
