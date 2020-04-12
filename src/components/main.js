@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './home/home';
 import Driver from './driver/driver';
 import AddDriver from './driver/addDriver';
+import EditDriver from './driver/editDriver';
+import DeleteDriver from './driver/deleteDriver';
 import AddVehicle from './vehicle/addVehicle';
 import AddDriverMessenger from './driverMessenger/addDriverMessenger';
 import Vehicle from './vehicle/vehicle';
@@ -14,6 +16,8 @@ const Main = () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route path="/driver/add" component={AddDriver} />
+    <Route exact path="/driver/edit/:id" component={EditDriver} />
+    <Route exact path="/driver/delete/:id" component={DeleteDriver} />
     <Route path="/vehicle/add" component={AddVehicle} />
     <Route path="/driverMessenger/add" component={AddDriverMessenger} />
     <Route path="/driver" component={Driver} />
