@@ -55,7 +55,7 @@ class VehicleMonitor extends Component {
                       </thead>
                       <tbody>
                           {
-                              vehicleMonitorDetails && vehicleMonitorDetails.map(vehicleMonitor => <VehicleMonitorData key={vehicleMonitor._id} data={vehicleMonitor} />)
+                              !loading && vehicleMonitorDetails && vehicleMonitorDetails.map(vehicleMonitor => <VehicleMonitorData key={vehicleMonitor._id} data={vehicleMonitor} />)
                           }
                       </tbody>
                   </table>

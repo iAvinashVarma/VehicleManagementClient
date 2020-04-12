@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TextInputGroup from '../layout/textInputGroup';
 import { addVehicleDetails } from './vehicle.service'
+import Loading from './../layout/loading';
+import Error from './../layout/error';
 
 export default class AddVehicle extends Component {
 
@@ -12,7 +14,9 @@ export default class AddVehicle extends Component {
 
     state = {
         errors: {},
-        submitError: {}
+        submitError: {},
+        loading: false,
+        error: false
     }
 
     onChange = (e) => {
@@ -20,6 +24,7 @@ export default class AddVehicle extends Component {
     }
 
     onSubmit = (e) => {
+        this.setState({ loading: true });
         e.preventDefault();
         const vehicle = {
             name: this.nameInput.current.value,
@@ -38,17 +43,19 @@ export default class AddVehicle extends Component {
         addVehicleDetails(vehicle)
             .then(res => {
                 console.log('Add vehicle response :: ', res);
+                this.setState({ loading: false });
                 this.props.history.push('/vehicle');
             })
             .catch(error => {
                 this.setState({ submitError: error.message });
+                this.setState({ error: true });
             })
 
     }
 
     render() {
         const { name, registrationNumber } = this.props;
-        const { errors } = this.state;
+        const { errors, loading, error } = this.state;
         return (
             <div>
                 <div class="container-fluid">
@@ -56,27 +63,31 @@ export default class AddVehicle extends Component {
                 </div>
                 <hr/>
                 <div class="container">
-                    <form onSubmit={this.onSubmit.bind(this)}>
-                        <TextInputGroup
-                            name="name"
-                            type="text"
-                            placeholder="Enter Name . . ."
-                            value={name}
-                            refName={this.nameInput}
-                            label="Full Name"
-                            error={errors.name}
-                        />
-                        <TextInputGroup
-                            name="registrationNumber"
-                            type="text"
-                            placeholder="Enter RegistrationNumber . . ."
-                            value={registrationNumber}
-                            refName={this.registrationNumberInput}
-                            label="RegistrationNumber"
-                            error={errors.registrationNumber}
-                        />
-                        <input class="btn btn-primary" type="submit" value="Add Vehicle"></input>
-                    </form>
+                    {
+                        !loading &&  <form onSubmit={this.onSubmit.bind(this)}>
+                            <TextInputGroup
+                                name="name"
+                                type="text"
+                                placeholder="Enter Name . . ."
+                                value={name}
+                                refName={this.nameInput}
+                                label="Full Name"
+                                error={errors.name}
+                            />
+                            <TextInputGroup
+                                name="registrationNumber"
+                                type="text"
+                                placeholder="Enter RegistrationNumber . . ."
+                                value={registrationNumber}
+                                refName={this.registrationNumberInput}
+                                label="RegistrationNumber"
+                                error={errors.registrationNumber}
+                            />
+                            <input class="btn btn-primary" type="submit" value="Add Vehicle"></input>
+                        </form>
+                    }
+                    <Loading loading={loading && !error} />
+                    <Error error={error} />
                 </div>
             </div>
         )

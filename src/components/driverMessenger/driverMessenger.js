@@ -54,7 +54,7 @@ render() {
                       </thead>
                       <tbody>
                           {
-                              driverMessengerDetails && driverMessengerDetails.map(driverMessenger => <DriverMessengerData key={driverMessenger._id} data={driverMessenger} />)
+                              !loading && driverMessengerDetails && driverMessengerDetails.map(driverMessenger => <DriverMessengerData key={driverMessenger._id} data={driverMessenger} />)
                           }
                       </tbody>
                   </table>

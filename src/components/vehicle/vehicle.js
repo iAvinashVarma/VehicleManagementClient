@@ -54,7 +54,7 @@ class Vehicle extends Component {
                       </thead>
                       <tbody>
                           {
-                              vehicleDetails && vehicleDetails.map(vehicle => <VehicleData key={vehicle._id} data={vehicle} />)
+                              !loading && vehicleDetails && vehicleDetails.map(vehicle => <VehicleData key={vehicle._id} data={vehicle} />)
                           }
                       </tbody>
                   </table>

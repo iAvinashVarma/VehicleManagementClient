@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TextInputGroup from '../layout/textInputGroup';
-import { addDriverDetails } from './driver.service'
+import { addDriverDetails } from './driver.service';
+import Loading from './../layout/loading';
+import Error from './../layout/error';
 
 export default class AddDriver extends Component {
 
@@ -14,7 +16,9 @@ export default class AddDriver extends Component {
 
     state = {
         errors: {},
-        submitError: {}
+        submitError: {},
+        loading: false,
+        error: false
     }
 
     onChange = (e) => {
@@ -22,6 +26,7 @@ export default class AddDriver extends Component {
     }
 
     onSubmit = (e) => {
+        this.setState({ loading: true });
         e.preventDefault();
         const driver = {
             name: this.nameInput.current.value,
@@ -52,17 +57,19 @@ export default class AddDriver extends Component {
         addDriverDetails(driver)
             .then(res => {
                 console.log('Add driver response :: ', res);
+                this.setState({ loading: false });
                 this.props.history.push('/driver');
             })
             .catch(error => {
                 this.setState({ submitError: error.message });
+                this.setState({ error: true });
             })
 
     }
 
     render() {
         const { name, phone, age, identity } = this.props;
-        const { errors } = this.state;
+        const { errors, loading, error } = this.state;
         return (
             <div>
                 <div class="container-fluid">
@@ -70,7 +77,8 @@ export default class AddDriver extends Component {
                 </div>
                 <hr/>
                 <div class="container">
-                    <form onSubmit={this.onSubmit.bind(this)}>
+                    {
+                        !loading && <form onSubmit={this.onSubmit.bind(this)}>
                         <TextInputGroup
                             name="name"
                             type="text"
@@ -109,6 +117,9 @@ export default class AddDriver extends Component {
                         />
                         <input class="btn btn-primary" type="submit" value="Add Driver"></input>
                     </form>
+                    }
+                    <Loading loading={loading && !error} />
+                    <Error error={error} />
                 </div>
             </div>
         )

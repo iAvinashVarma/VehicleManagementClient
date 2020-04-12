@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TextInputGroup from '../layout/textInputGroup';
 import * as VehicleServices from './vehicle.service';
+import Loading from './../layout/loading';
+import Error from './../layout/error';
 
 export default class EditVehicle extends Component {
 
@@ -12,7 +14,9 @@ export default class EditVehicle extends Component {
 
     state = {
         errors: {},
-        submitError: {}
+        submitError: {},
+        loading: true,
+        error: false
     }
 
     componentDidMount() {
@@ -22,6 +26,7 @@ export default class EditVehicle extends Component {
         .then(res => {
             console.log('Vehicle response :: ', res);
             const vehicle = res.data;
+            this.setState({ loading: false });
             if(vehicle){
                 this.nameInput.current.value = vehicle.name;
                 this.registrationNumberInput.current.value = vehicle.registrationNumber;
@@ -29,10 +34,12 @@ export default class EditVehicle extends Component {
         })
         .catch(error => {
             this.setState({ submitError: error.message });
+            this.setState({ error: true });
         })
     }
 
     onSubmit = (e) => {
+        this.setState({ loading: true });
         e.preventDefault();
         const vehicle = {
             name: this.nameInput.current.value,
@@ -50,26 +57,29 @@ export default class EditVehicle extends Component {
         this.registrationNumberInput.current.value = '';
         VehicleServices.editVehicleDetails(this.props.match.params.id, vehicle)
         .then(res => {
-            console.log('Add vehicle response :: ', res);
+            console.log('Edit vehicle response :: ', res);
+            this.setState({ loading: false });
             this.props.history.push('/vehicle');
         })
         .catch(error => {
             this.setState({ submitError: error.message });
+            this.setState({ error: true });
         })
 
     }
 
     render() {
         const { name, registrationNumber } = this.props;
-        const { errors } = this.state;
+        const { errors, loading, error } = this.state;
         return (
             <div>
                 <div class="container-fluid">
-                    <h3 class="text-center my-3"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add Vehicle</h3>
+                    <h3 class="text-center my-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Vehicle</h3>
                 </div>
                 <hr/>
                 <div class="container">
-                    <form onSubmit={this.onSubmit.bind(this)}>
+                {
+                    !loading && <form onSubmit={this.onSubmit.bind(this)}>
                         <TextInputGroup
                             name="name"
                             type="text"
@@ -90,7 +100,10 @@ export default class EditVehicle extends Component {
                         />
                         <input class="btn btn-secondary" type="submit" value="Update Vehicle"></input>
                     </form>
+                }           
                 </div>
+                <Loading loading={loading && !error} />
+                <Error error={error} />
             </div>
         )
     }

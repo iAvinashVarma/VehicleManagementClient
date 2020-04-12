@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TextInputGroup from '../layout/textInputGroup';
 import * as DriverServices from './driver.service';
+import Loading from './../layout/loading';
+import Error from './../layout/error';
 
 export default class EditDriver extends Component {
 
@@ -14,7 +16,9 @@ export default class EditDriver extends Component {
 
     state = {
         errors: {},
-        submitError: {}
+        submitError: {},
+        loading: true,
+        error: false
     }
 
     componentDidMount() {
@@ -24,6 +28,7 @@ export default class EditDriver extends Component {
         .then(res => {
             console.log('Driver response :: ', res);
             const driver = res.data;
+            this.setState({ loading: false });
             if(driver){
                 this.nameInput.current.value = driver.name;
                 this.phoneInput.current.value = driver.phone;
@@ -33,10 +38,12 @@ export default class EditDriver extends Component {
         })
         .catch(error => {
             this.setState({ submitError: error.message });
+            this.setState({ error: true });
         })
     }
 
     onSubmit = (e) => {
+        this.setState({ loading: true });
         e.preventDefault();
         const driver = {
             name: this.nameInput.current.value,
@@ -66,18 +73,20 @@ export default class EditDriver extends Component {
         this.identityInput.current.value = '';
         DriverServices.editDriverDetails(this.props.match.params.id, driver)
         .then(res => {
-            console.log('Add driver response :: ', res);
+            console.log('Edit driver response :: ', res);
+            this.setState({ loading: false });
             this.props.history.push('/driver');
         })
         .catch(error => {
             this.setState({ submitError: error.message });
+            this.setState({ error: true });
         })
 
     }
 
     render() {
         const { name, phone, age, identity } = this.props;
-        const { errors } = this.state;
+        const { errors, loading, error } = this.state;
         return (
             <div>
                 <div class="container-fluid">
@@ -85,7 +94,8 @@ export default class EditDriver extends Component {
                 </div>
                 <hr/>
                 <div class="container">
-                <form onSubmit={this.onSubmit.bind(this)}>
+                {
+                !loading && <form onSubmit={this.onSubmit.bind(this)}>
                         <TextInputGroup
                             name="name"
                             type="text"
@@ -124,7 +134,10 @@ export default class EditDriver extends Component {
                         />
                         <input class="btn btn-secondary" type="submit" value="Update Driver"></input>
                     </form>
+                }
                 </div>
+                <Loading loading={loading && !error} />
+                <Error error={error} />
             </div>
         )
     }
