@@ -26,7 +26,7 @@ class Driver extends Component {
         return (
             <div>
                 <div class="container-fluid">
-                    <h3 class="text-center my-3">Driver</h3>
+                    <h3 class="text-center my-3"><i className="fa fa-user-o" aria-hidden="true" /> Driver</h3>
                 </div>
                 <hr/>
                 <div class="container">

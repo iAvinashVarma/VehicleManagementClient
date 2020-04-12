@@ -26,7 +26,7 @@ class Vehicle extends Component {
     return(
       <div>
           <div class="container-fluid">
-              <h3 class="text-center my-3">Vehicle</h3>
+              <h3 class="text-center my-3"><i className="fa fa-bus" aria-hidden="true" /> Vehicle</h3>
           </div>
           <hr/>
           <div class="container">

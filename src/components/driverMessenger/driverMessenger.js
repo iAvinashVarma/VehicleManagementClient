@@ -27,7 +27,7 @@ render() {
     return(
       <div>
           <div class="container-fluid">
-              <h3 class="text-center my-3">Driver Messagenger</h3>
+              <h3 class="text-center my-3"><i className="fa comments-o" aria-hidden="true" /> Driver Messagenger</h3>
           </div>
           <hr/>
           <div class="container">

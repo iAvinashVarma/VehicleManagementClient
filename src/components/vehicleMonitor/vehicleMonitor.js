@@ -26,7 +26,7 @@ class VehicleMonitor extends Component {
     return(
       <div>
           <div class="container-fluid">
-              <h3 class="text-center my-3">Vehicle Monitor</h3>
+              <h3 class="text-center my-3"><i className="fa fa-television" aria-hidden="true" /> Vehicle Monitor</h3>
           </div>
           <hr/>
           <div class="container">
