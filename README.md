@@ -7,6 +7,24 @@ Vehicle Management System Client that allows the user to create, update and dele
 [![Azure Application Status](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fvehiclemanagementsystemclient.azurewebsites.net)](https://vehiclemanagementsystemclient.azurewebsites.net/)
 [![Firebase Application Status](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fvehiclemanagementsystemclient.web.app)](https://vehiclemanagementsystemclient.web.app/)
 
+## Client - Web Interface Guide
+
+### View and Add Vehicle
+
+![](images/guide/VehicleManagementSystem-VehicleCreation.gif)
+
+### View and Add Driver
+
+![](images/guide/VehicleManagementSystem-DriverCreation.gif)
+
+### View and Add Vehicle Monitor Data
+
+![](images/guide/VehicleManagementSystem-VehicleMonitorCreation.gif)
+
+### View and Add Driver Message
+
+![](images/guide/VehicleManagementSystem-DriverMessageCreation.gif)
+
 ## Entity Relationship
 
 ![](images/VMSEntityRelationship.jpg)
