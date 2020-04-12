@@ -7,6 +7,14 @@ Vehicle Management System Client that allows the user to create, update and dele
 [![Azure Application Status](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fvehiclemanagementsystemclient.azurewebsites.net)](https://vehiclemanagementsystemclient.azurewebsites.net/)
 [![Firebase Application Status](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fvehiclemanagementsystemclient.web.app)](https://vehiclemanagementsystemclient.web.app/)
 
+## Entity Relationship
+
+![](images/VMSEntityRelationship.jpg)
+
+## DevOps Flow
+
+![](images/VMSDevOps.jpg)
+
 ## Run Dev Environment
 
 ```bash
