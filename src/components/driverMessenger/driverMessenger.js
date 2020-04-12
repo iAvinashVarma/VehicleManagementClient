@@ -27,14 +27,14 @@ render() {
     return(
       <div>
           <div class="container-fluid">
-              <h3 class="text-center my-3"><i className="fa comments-o" aria-hidden="true" /> Driver Messagenger</h3>
+              <h3 class="text-center my-3"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messages</h3>
           </div>
           <hr/>
           <div class="container">
               <div class="table-wrapper">
                   <div class="table-title">
                       <div class="row">
-                          <div class="col-sm-8"><h2><b>Driver Messagenger </b> Details</h2></div>
+                          <div class="col-sm-8"><h2><b>Driver Messages </b> Details</h2></div>
                           <div class="col-sm-4">
                               <Link to="/vehicle/add">
                                   <button type="button" href="/vehicle/add" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add Vehicle</button>

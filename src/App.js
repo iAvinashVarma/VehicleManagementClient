@@ -14,7 +14,7 @@ class App extends Component {
               <Link to="/vehicle"><i className="fa fa-bus" aria-hidden="true" /> Vehicle</Link>
               <Link to="/driver"><i className="fa fa-user-o" aria-hidden="true" /> Driver</Link>
               <Link to="/vehicleMonitor"><i className="fa fa-television" aria-hidden="true" /> Vehicle Monitor</Link>
-              <Link to="/driverMessenger"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messenger</Link>
+              <Link to="/driverMessenger"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messages</Link>
             </Navigation>
           </Header>
           <Drawer title={<Link style={{ textDecoration: 'none', color: 'black' }} to="/"><i className="fa fa-truck" aria-hidden="true" /> VMS</Link>}>
@@ -22,7 +22,7 @@ class App extends Component {
               <Link to="/vehicle"><i className="fa fa-bus" aria-hidden="true" /> Vehicle</Link>
               <Link to="/driver"><i className="fa fa-user-o" aria-hidden="true" /> Driver</Link>
               <Link to="/vehicleMonitor"><i className="fa fa-television" aria-hidden="true" /> Vehicle Monitor</Link>
-              <Link to="/driverMessenger"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messenger</Link>
+              <Link to="/driverMessenger"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messages</Link>
             </Navigation>
           </Drawer>
           <Content>
