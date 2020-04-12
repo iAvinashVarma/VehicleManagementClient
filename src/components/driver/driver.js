@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 import DriverData from './driverData';
 import * as DriverServices from './driver.service';
 import { Link } from 'react-router-dom';
+import Loading from './../layout/loading';
 
 class Driver extends Component {
 
     state = {
         showDriverData: true,
-        driverDetails: []
+        driverDetails: [],
+        loading: true
     }
 
     componentDidMount() {
         DriverServices.getDriverDetails()
             .then(res => {
                 console.log('Response from server is :: ', res);
-                this.setState({ driverDetails: res.data })
+                this.setState({ driverDetails: res.data });
+                this.setState({ loading: false });
             })
             .catch(function (error) {
                 console.log(error);
@@ -22,7 +25,7 @@ class Driver extends Component {
     }
 
     render() {
-        let { driverDetails } = this.state
+        let { driverDetails, loading } = this.state
         return (
             <div>
                 <div class="container-fluid">
@@ -53,12 +56,13 @@ class Driver extends Component {
                             </thead>
                             <tbody>
                                 {
-                                    driverDetails && driverDetails.map(driver => <DriverData key={driver._id} data={driver} />)
+                                    !loading && driverDetails && driverDetails.map(driver => <DriverData key={driver._id} data={driver} />)
                                 }
                             </tbody>
                         </table>
                     </div>
                 </div> 
+                <Loading loading={loading} />
             </div>
         )
     }

@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 import VehicleData from './vehicleData';
 import * as VehicleServices from './vehicle.service';
 import { Link } from 'react-router-dom';
+import Loading from './../layout/loading';
 
 class Vehicle extends Component {
 
     state = {
         showVehicleData: true,
-        vehicleDetails: []
+        vehicleDetails: [],
+        loading: true
     }
 
   componentDidMount() {
       VehicleServices.getVehicleDetails()
           .then(res => {
               console.log('Response from server is :: ', res);
-              this.setState({ vehicleDetails: res.data })
+              this.setState({ vehicleDetails: res.data });
+              this.setState({ loading: false });
           })
           .catch(function (error) {
               console.log(error);
@@ -22,7 +25,7 @@ class Vehicle extends Component {
   }
   
   render() {
-    let { vehicleDetails } = this.state
+    let { vehicleDetails, loading } = this.state
     return(
       <div>
           <div class="container-fluid">
@@ -57,6 +60,7 @@ class Vehicle extends Component {
                   </table>
               </div>
           </div> 
+          <Loading loading={loading} />
       </div>
     )
   }

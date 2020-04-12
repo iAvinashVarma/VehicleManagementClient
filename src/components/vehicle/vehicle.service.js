@@ -4,12 +4,20 @@ function getVehicleDetails() {
     return APIService.httpGetRequest(process.env.REACT_APP_VMS_VEHICLES_API_URL);
 }
 
+function getVehicleData(id) {
+    return APIService.httpGetRequest(process.env.REACT_APP_VMS_VEHICLES_API_URL + '/' + id);
+}
+
 function addVehicleDetails(data) {
     return APIService.httpPostRequest(process.env.REACT_APP_VMS_VEHICLES_API_URL, data);
 }
 
-function editVehicleDetails() {
-    return APIService.httpGetRequest(process.env.REACT_APP_VMS_VEHICLES_API_URL);
+function editVehicleDetails(id, data) {
+    return APIService.httpPutRequest(process.env.REACT_APP_VMS_VEHICLES_API_URL, id, data);
 }
 
-export { getVehicleDetails, addVehicleDetails, editVehicleDetails };
+function deleteVehicleDetails(id) {
+    return APIService.httpDeleteRequest(process.env.REACT_APP_VMS_VEHICLES_API_URL, id);
+}
+
+export { getVehicleDetails, getVehicleData, addVehicleDetails, editVehicleDetails, deleteVehicleDetails };

@@ -2,13 +2,17 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from './home/home';
-import Driver from './driver/driver';
 import AddDriver from './driver/addDriver';
 import EditDriver from './driver/editDriver';
 import DeleteDriver from './driver/deleteDriver';
+import Driver from './driver/driver';
+
 import AddVehicle from './vehicle/addVehicle';
-import AddDriverMessenger from './driverMessenger/addDriverMessenger';
+import EditVehicle from './vehicle/editVehicle';
+import DeleteVehicle from './vehicle/deleteVehicle';
 import Vehicle from './vehicle/vehicle';
+
+import AddDriverMessenger from './driverMessenger/addDriverMessenger';
 import DriverMessenger from './driverMessenger/driverMessenger';
 import VehicleMonitor from './vehicleMonitor/vehicleMonitor';
 
@@ -19,6 +23,8 @@ const Main = () => (
     <Route exact path="/driver/edit/:id" component={EditDriver} />
     <Route exact path="/driver/delete/:id" component={DeleteDriver} />
     <Route path="/vehicle/add" component={AddVehicle} />
+    <Route path="/vehicle/edit/:id" component={EditVehicle} />
+    <Route path="/vehicle/delete/:id" component={DeleteVehicle} />
     <Route path="/driverMessenger/add" component={AddDriverMessenger} />
     <Route path="/driver" component={Driver} />
     <Route path="/vehicle" component={Vehicle} />

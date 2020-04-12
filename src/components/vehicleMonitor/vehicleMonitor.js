@@ -2,27 +2,28 @@ import React, { Component } from 'react';
 import VehicleMonitorData from './vehicleMonitorData';
 import * as VehicleMonitorServices from './vehicleMonitor.service';
 import { Link } from 'react-router-dom';
+import Loading from './../layout/loading';
 
 class VehicleMonitor extends Component {
 
   state = {
     showVehicleMonitorData: true,
-    vehicleMonitorDetails: []
+    vehicleMonitorDetails: [],
+    loading: true
   }
   componentDidMount() {
     VehicleMonitorServices.getVehicleMonitorDetails()
       .then(res => {
           console.log('Response from server is :: ', res);
-          this.setState({
-            vehicleMonitorDetails: res.data 
-          })
+          this.setState({ vehicleMonitorDetails: res.data });
+          this.setState({ loading: false });
       })
       .catch(function (error) {
           console.log(error);
       });
   }
   render() {
-    let { vehicleMonitorDetails } = this.state
+    let { vehicleMonitorDetails, loading } = this.state
     return(
       <div>
           <div class="container-fluid">
@@ -60,6 +61,7 @@ class VehicleMonitor extends Component {
                   </table>
               </div>
           </div> 
+          <Loading loading={loading} />
       </div>
     )
   }

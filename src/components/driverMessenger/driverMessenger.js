@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 import DriverMessengerData from './driverMessengerData';
 import * as DriverMessengerServices from './driverMessenger.service';
 import { Link } from 'react-router-dom';
+import Loading from './../layout/loading';
 
 class DriverMessenger extends Component {
     state = {
         showDriverMessengerData: true,
-        driverMessengerDetails: []
+        driverMessengerDetails: [],
+        loading: true
     }
 
     componentDidMount() {
         DriverMessengerServices.getDriverMessengerDetails()
         .then(res => {
             console.log('Response from server is :: ', res);
-            this.setState({
-                driverMessengerDetails: res.data 
-            })
+            this.setState({ driverMessengerDetails: res.data });
+            this.setState({ loading: false });
         })
         .catch(function (error) {
             console.log(error);
@@ -23,7 +24,7 @@ class DriverMessenger extends Component {
     }
 
 render() {
-  let { driverMessengerDetails } = this.state
+  let { driverMessengerDetails, loading } = this.state
     return(
       <div>
           <div class="container-fluid">
@@ -59,6 +60,7 @@ render() {
                   </table>
               </div>
           </div> 
+          <Loading loading={loading} />
       </div>
     )
   }

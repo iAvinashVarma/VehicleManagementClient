@@ -122,7 +122,7 @@ export default class EditDriver extends Component {
                             label="identity"
                             error={errors.identity}
                         />
-                        <input class="btn btn-primary" type="submit" value="Add Driver"></input>
+                        <input class="btn btn-secondary" type="submit" value="Update Driver"></input>
                     </form>
                 </div>
             </div>

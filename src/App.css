@@ -47,6 +47,10 @@
   padding: 1em;
 }
 
+.banner-text a {
+  color: white;
+}
+
 .header-grid h2 {
   font-family: 'Anton', sans-serif;
 }
