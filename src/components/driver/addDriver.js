@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TextInputGroup from '../layout/textInputGroup';
-import { addDriverDetails } from './driver.service';
+import * as DriverServices from './driver.service';
 import Loading from './../layout/loading';
 import Error from './../layout/error';
 
@@ -54,7 +54,7 @@ export default class AddDriver extends Component {
         this.phoneInput.current.value = '';
         this.ageInput.current.value = '';
         this.identityInput.current.value = '';
-        addDriverDetails(driver)
+        DriverServices.addDriverDetails(driver)
             .then(res => {
                 console.log('Add driver response :: ', res);
                 this.setState({ loading: false });

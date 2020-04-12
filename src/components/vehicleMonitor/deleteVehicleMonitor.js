@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import * as DriverMessengerServices from './driverMessenger.service';
+import * as VehicleMonitorServices from './vehicleMonitor.service';
 import Error from './../layout/error';
 
-export default class DeleteDriverMessenger extends Component {
+export default class DeleteVehicleMonitor extends Component {
     state = {
         error: false
     }
@@ -10,10 +10,10 @@ export default class DeleteDriverMessenger extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         console.log("Delete ID: " + id);
-        DriverMessengerServices.deleteDriverMessengerDetails(id)
+        VehicleMonitorServices.deleteVehicleMonitorDetails(id)
         .then(res => {
             console.log('Response from server is :: ', res);
-            this.props.history.push('/driverMessenger');
+            this.props.history.push('/vehicleMonitor');
         })
         .catch(error => {
             console.log(error);

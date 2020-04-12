@@ -13,7 +13,7 @@ function addDriverMessengerDetails(data) {
 }
 
 function editDriverMessengerDetails(id, data) {
-    return APIService.httpGetRequest(process.env.REACT_APP_VMS_DRIVERMESSENGERS_API_URL, id, data);
+    return APIService.httpPutRequest(process.env.REACT_APP_VMS_DRIVERMESSENGERS_API_URL, id, data);
 }
 
 function deleteDriverMessengerDetails(id) {

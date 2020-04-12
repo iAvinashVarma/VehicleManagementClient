@@ -16,6 +16,10 @@ import AddDriverMessenger from './driverMessenger/addDriverMessenger';
 import EditDriverMessenger from './driverMessenger/editDriverMessenger';
 import DeleteDriverMessenger from './driverMessenger/deleteDriverMessenger';
 import DriverMessenger from './driverMessenger/driverMessenger';
+
+import AddVehicleMonitor from './vehicleMonitor/addVehicleMonitor';
+import EditVehicleMonitor from './vehicleMonitor/editVehicleMonitor';
+import DeleteVehicleMonitor from './vehicleMonitor/deleteVehicleMonitor';
 import VehicleMonitor from './vehicleMonitor/vehicleMonitor';
 
 const Main = () => (
@@ -30,6 +34,9 @@ const Main = () => (
     <Route path="/driverMessenger/add" component={AddDriverMessenger} />
     <Route path="/driverMessenger/edit/:id" component={EditDriverMessenger} />
     <Route path="/driverMessenger/delete/:id" component={DeleteDriverMessenger} />
+    <Route path="/vehicleMonitor/add" component={AddVehicleMonitor} />
+    <Route path="/vehicleMonitor/edit/:id" component={EditVehicleMonitor} />
+    <Route path="/vehicleMonitor/delete/:id" component={DeleteVehicleMonitor} />
     <Route path="/driver" component={Driver} />
     <Route path="/vehicle" component={Vehicle} />
     <Route path="/driverMessenger" component={DriverMessenger} />
