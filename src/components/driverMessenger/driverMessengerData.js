@@ -7,9 +7,9 @@ class DriverMessengerData extends Component {
     }
 
     render() {
-        const { vehicle, driver, driverMessage } = this.props.data;
+        const { _id: id, vehicle, driver, driverMessage } = this.props.data;
         return (
-            <tr id={driverMessage._id}>
+            <tr id={id}>
                 <td>{vehicle.name}</td>
                 <td>{driver.name}</td>
                 <td>{driverMessage.message}</td>

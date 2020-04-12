@@ -36,7 +36,7 @@ class VehicleMonitor extends Component {
                           <div class="col-sm-8"><h2><b>Vehicle Monitor </b> Details</h2></div>
                           <div class="col-sm-4">
                               <Link to="/vehicleMonitor/add">
-                                  <button type="button" href="/vehicleMonitor/add" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add Vehicle</button>
+                                  <button type="button" href="/vehicleMonitor/add" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add Vehicle Monitor</button>
                               </Link>
                           </div>
                       </div>
@@ -46,16 +46,15 @@ class VehicleMonitor extends Component {
                           <tr>
                               <th>Vehicle</th>
                               <th>Driver</th>
-                              <th>Latitude</th>
-                              <th>Longitude</th>
+                              <th>Location</th>
                               <th>PressurePsi</th>
-                              <th>TemperatureCelsius</th>
+                              <th>Temp °C</th>
                               <th>Action</th>
                           </tr>
                       </thead>
                       <tbody>
                           {
-                              vehicleMonitorDetails && vehicleMonitorDetails.map(vehicleMonitor => <DriverMessengerData key={vehicleMonitor._id} data={vehicleMonitor} />)
+                              vehicleMonitorDetails && vehicleMonitorDetails.map(vehicleMonitor => <VehicleMonitorData key={vehicleMonitor._id} data={vehicleMonitor} />)
                           }
                       </tbody>
                   </table>

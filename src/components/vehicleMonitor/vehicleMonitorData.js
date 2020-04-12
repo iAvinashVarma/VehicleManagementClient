@@ -5,13 +5,12 @@ class VehicleMonitorData extends Component {
 
   }
   render() {
-    const { vehicle, driver, vehicleMonitor } = this.props.data;
+    const { _id: id, vehicle, driver, vehicleMonitor } = this.props.data;
     return(
-      <tr id={driverMessage._id}>
+      <tr id={id}>
           <td>{vehicle.name}</td>
           <td>{driver.name}</td>
-          <td>{vehicleMonitor.location.latitude}</td>
-          <td>{vehicleMonitor.location.longitude}</td>
+          <td><a href={"http://www.google.com/maps/place/ + {vehicleMonitor.location.latitude} + ',' + {vehicleMonitor.location.longitude}"} target='_blank'>Click Here</a></td>
           <td>{vehicleMonitor.pressure.pressurePsi}</td>
           <td>{vehicleMonitor.temperature.temperatureCelsius}</td>
           <td>
