@@ -43,7 +43,6 @@ export default class EditDriver extends Component {
     }
 
     onSubmit = (e) => {
-        this.setState({ loading: true });
         e.preventDefault();
         const driver = {
             name: this.nameInput.current.value,
@@ -67,6 +66,7 @@ export default class EditDriver extends Component {
             this.setState({ errors: { identity: 'Identity required' } });
             return;
         }
+        this.setState({ loading: true });
         this.nameInput.current.value = '';
         this.phoneInput.current.value = '';
         this.ageInput.current.value = '';
@@ -132,7 +132,7 @@ export default class EditDriver extends Component {
                             label="identity"
                             error={errors.identity}
                         />
-                        <input class="btn btn-secondary" type="submit" value="Update Driver"></input>
+                        <input class="btn btn-info" type="submit" value="Update Driver"></input>
                     </form>
                 }
                 </div>

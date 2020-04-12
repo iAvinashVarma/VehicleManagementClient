@@ -13,15 +13,15 @@ class Vehicle extends Component {
     }
 
   componentDidMount() {
-      VehicleServices.getVehicleDetails()
-          .then(res => {
-              console.log('Response from server is :: ', res);
-              this.setState({ vehicleDetails: res.data });
-              this.setState({ loading: false });
-          })
-          .catch(function (error) {
-              console.log(error);
-          });
+        VehicleServices.getVehicleDetails()
+        .then(res => {
+            console.log('Vehicle response :: ', res);
+            this.setState({ vehicleDetails: res.data });
+            this.setState({ loading: false });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
   }
   
   render() {

@@ -4,12 +4,20 @@ function getDriverMessengerDetails() {
     return APIService.httpGetRequest(process.env.REACT_APP_VMS_DRIVERMESSENGERS_API_URL);
 }
 
+function getDriverMessengerData(id) {
+    return APIService.httpGetRequest(process.env.REACT_APP_VMS_DRIVERMESSENGERS_API_URL + '/' + id);
+}
+
 function addDriverMessengerDetails(data) {
     return APIService.httpPostRequest(process.env.REACT_APP_VMS_DRIVERMESSENGERS_API_URL, data);
 }
 
-function editDriverMessengerDetails() {
-    return APIService.httpGetRequest(process.env.REACT_APP_VMS_DRIVERMESSENGERS_API_URL);
+function editDriverMessengerDetails(id, data) {
+    return APIService.httpGetRequest(process.env.REACT_APP_VMS_DRIVERMESSENGERS_API_URL, id, data);
 }
 
-export { getDriverMessengerDetails, addDriverMessengerDetails, editDriverMessengerDetails };
+function deleteDriverMessengerDetails(id) {
+    return APIService.httpDeleteRequest(process.env.REACT_APP_VMS_DRIVERMESSENGERS_API_URL, id);
+}
+
+export { getDriverMessengerDetails, getDriverMessengerData, addDriverMessengerDetails, editDriverMessengerDetails, deleteDriverMessengerDetails };

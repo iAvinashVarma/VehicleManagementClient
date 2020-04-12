@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as DriverServices from './driver.service';
 import Error from './../layout/error';
 
-export default class AddDriver extends Component {
+export default class DeleteDriver extends Component {
     state = {
         error: false
     }

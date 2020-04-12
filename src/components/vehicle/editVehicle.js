@@ -39,7 +39,6 @@ export default class EditVehicle extends Component {
     }
 
     onSubmit = (e) => {
-        this.setState({ loading: true });
         e.preventDefault();
         const vehicle = {
             name: this.nameInput.current.value,
@@ -53,6 +52,7 @@ export default class EditVehicle extends Component {
             this.setState({ errors: { registrationNumber: 'RegistrationNumber required' } });
             return;
         }
+        this.setState({ loading: true });
         this.nameInput.current.value = '';
         this.registrationNumberInput.current.value = '';
         VehicleServices.editVehicleDetails(this.props.match.params.id, vehicle)
@@ -64,8 +64,7 @@ export default class EditVehicle extends Component {
         .catch(error => {
             this.setState({ submitError: error.message });
             this.setState({ error: true });
-        })
-
+        });
     }
 
     render() {
@@ -98,7 +97,7 @@ export default class EditVehicle extends Component {
                             label="RegistrationNumber"
                             error={errors.registrationNumber}
                         />
-                        <input class="btn btn-secondary" type="submit" value="Update Vehicle"></input>
+                        <input class="btn btn-info" type="submit" value="Update Vehicle"></input>
                     </form>
                 }           
                 </div>

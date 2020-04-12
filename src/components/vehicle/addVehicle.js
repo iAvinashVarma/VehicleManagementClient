@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TextInputGroup from '../layout/textInputGroup';
-import { addVehicleDetails } from './vehicle.service'
+import * as VehicleServices  from './vehicle.service';
 import Loading from './../layout/loading';
 import Error from './../layout/error';
 
@@ -24,7 +24,6 @@ export default class AddVehicle extends Component {
     }
 
     onSubmit = (e) => {
-        this.setState({ loading: true });
         e.preventDefault();
         const vehicle = {
             name: this.nameInput.current.value,
@@ -38,19 +37,19 @@ export default class AddVehicle extends Component {
             this.setState({ errors: { registrationNumber: 'RegistrationNumber required' } });
             return;
         }
+        this.setState({ loading: true });
         this.nameInput.current.value = '';
         this.registrationNumberInput.current.value = '';
-        addVehicleDetails(vehicle)
-            .then(res => {
-                console.log('Add vehicle response :: ', res);
-                this.setState({ loading: false });
-                this.props.history.push('/vehicle');
-            })
-            .catch(error => {
-                this.setState({ submitError: error.message });
-                this.setState({ error: true });
-            })
-
+        VehicleServices.addVehicleDetails(vehicle)
+        .then(res => {
+            console.log('Add vehicle response :: ', res);
+            this.setState({ loading: false });
+            this.props.history.push('/vehicle');
+        })
+        .catch(error => {
+            this.setState({ submitError: error.message });
+            this.setState({ error: true });
+        });
     }
 
     render() {
