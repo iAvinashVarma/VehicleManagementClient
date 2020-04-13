@@ -3,13 +3,15 @@ import axios from 'axios';
 const instance = process.env.REACT_APP_ENVIRONMENT === 'dev' ? axios.create({
     baseURL: process.env.REACT_APP_VMS_HOST,
     headers: {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+        "Authorization": `Bearer ${process.env.REACT_APP_VMS_API_TOKEN}`
     },
     responseType: 'json'
 }) : axios.create({
     baseURL: process.env.REACT_APP_VMS_HOST,
     headers: {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+        "Authorization": `Bearer ${process.env.REACT_APP_VMS_API_TOKEN}`
     },
     responseType: 'json'
 });
