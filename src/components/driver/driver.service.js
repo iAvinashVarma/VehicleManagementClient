@@ -8,7 +8,6 @@ function getDriverData(id) {
     return APIService.httpGetRequest(process.env.REACT_APP_VMS_DRIVERS_API_URL + '/' + id);
 }
 
-
 function addDriverDetails(data) {
     return APIService.httpPostRequest(process.env.REACT_APP_VMS_DRIVERS_API_URL, data);
 }

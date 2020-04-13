@@ -23,10 +23,8 @@ export default class EditDriver extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        console.log("Edit ID: " + id);
         DriverServices.getDriverData(id)
         .then(res => {
-            console.log('Driver response :: ', res);
             const driver = res.data;
             this.setState({ loading: false });
             if(driver){
@@ -73,7 +71,6 @@ export default class EditDriver extends Component {
         this.identityInput.current.value = '';
         DriverServices.editDriverDetails(this.props.match.params.id, driver)
         .then(res => {
-            console.log('Edit driver response :: ', res);
             this.setState({ loading: false });
             this.props.history.push('/driver');
         })
@@ -89,11 +86,11 @@ export default class EditDriver extends Component {
         const { errors, loading, error } = this.state;
         return (
             <div>
-                <div class="container-fluid">
-                    <h3 class="text-center my-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Driver</h3>
+                <div className="container-fluid">
+                    <h3 className="text-center my-3"><i className="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Driver</h3>
                 </div>
                 <hr/>
-                <div class="container">
+                <div className="container">
                 {
                 !loading && <form onSubmit={this.onSubmit.bind(this)}>
                         <TextInputGroup
@@ -132,7 +129,7 @@ export default class EditDriver extends Component {
                             label="identity"
                             error={errors.identity}
                         />
-                        <input class="btn btn-info" type="submit" value="Update Driver"></input>
+                        <input className="btn btn-info" type="submit" value="Update Driver"></input>
                     </form>
                 }
                 </div>

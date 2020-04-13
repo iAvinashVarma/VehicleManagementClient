@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class DriverMessengerData extends Component {
 
-    onDeleteClick = (id) => {
-        
+    onDeleteDriverMessenger(driver) {
+        this.props.onDeleteDriverMessenger(driver);
     }
 
     render() {
@@ -14,8 +14,8 @@ class DriverMessengerData extends Component {
                 <td>{driver.name}</td>
                 <td>{driverMessage.message}</td>
                 <td>
-                    <a class="edit" title="Edit" href={'/driverMessenger/edit/' + id} data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a class="delete" title="Delete" href={'/driverMessenger/delete/' + id} data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    <a className="edit" title="Edit" href={'/driverMessenger/edit/' + id} data-toggle="tooltip"><i className="material-icons">&#xE254;</i></a>
+                    <a className="delete" title="Delete" onClick={this.onDeleteDriverMessenger.bind(this, this.props.data)} data-toggle="tooltip"><i className="material-icons">&#xE872;</i></a>
                 </td>
             </tr>
         )

@@ -3,6 +3,8 @@ import DriverMessengerData from './driverMessengerData';
 import * as DriverMessengerServices from './driverMessenger.service';
 import { Link } from 'react-router-dom';
 import Loading from './../layout/loading';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class DriverMessenger extends Component {
     state = {
@@ -11,10 +13,40 @@ class DriverMessenger extends Component {
         loading: true
     }
 
+    onDeleteDriverMessenger = (driverMessenger) => {
+        confirmAlert({
+            message: `Are you sure to delete?.`,
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        let id = driverMessenger._id;
+                        this.setState({ loading: true });
+                        DriverMessengerServices.deleteDriverMessengerDetails(id)
+                        .then(res => {
+                            let driverMessengerDetails = this.state.driverMessengerDetails.slice();
+                            driverMessengerDetails = driverMessengerDetails.filter(driverMessenger => {
+                                return driverMessenger._id !== id
+                            });
+                            this.setState({ "driverMessengerDetails": driverMessengerDetails });
+                            this.setState({ loading: false });
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => console.log('No')
+                }
+            ]
+        });
+    }
+
     componentDidMount() {
         DriverMessengerServices.getDriverMessengerDetails()
         .then(res => {
-            console.log('Response from server is :: ', res);
             this.setState({ driverMessengerDetails: res.data });
             this.setState({ loading: false });
         })
@@ -27,23 +59,23 @@ render() {
   let { driverMessengerDetails, loading } = this.state
     return(
       <div>
-          <div class="container-fluid">
-              <h3 class="text-center my-3"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messages</h3>
+          <div className="container-fluid">
+              <h3 className="text-center my-3"><i className="fa fa-comments-o" aria-hidden="true" /> Driver Messages</h3>
           </div>
           <hr/>
-          <div class="container">
-              <div class="table-wrapper">
-                  <div class="table-title">
-                      <div class="row">
-                          <div class="col-sm-8"><h2><b>Driver Messages </b> Details</h2></div>
-                          <div class="col-sm-4">
+          <div className="container">
+              <div className="table-wrapper">
+                  <div className="table-title">
+                      <div className="row">
+                          <div className="col-sm-8"><h2><b>Driver Messages </b> Details</h2></div>
+                          <div className="col-sm-4">
                               <Link to="/driverMessenger/add">
-                                  <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add Driver Message</button>
+                                  <button type="button" className="btn btn-info add-new"><i className="fa fa-plus"></i> Add Driver Message</button>
                               </Link>
                           </div>
                       </div>
                   </div>
-                  <table class="table table-bordered">
+                  <table className="table table-bordered">
                       <thead>
                           <tr>
                               <th>Vehicle</th>
@@ -54,7 +86,7 @@ render() {
                       </thead>
                       <tbody>
                           {
-                              !loading && driverMessengerDetails && driverMessengerDetails.map(driverMessenger => <DriverMessengerData key={driverMessenger._id} data={driverMessenger} />)
+                              !loading && driverMessengerDetails && driverMessengerDetails.map(driverMessenger => <DriverMessengerData key={driverMessenger._id} data={driverMessenger} onDeleteDriverMessenger={this.onDeleteDriverMessenger} />)
                           }
                       </tbody>
                   </table>

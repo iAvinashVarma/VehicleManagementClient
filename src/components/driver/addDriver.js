@@ -55,16 +55,14 @@ export default class AddDriver extends Component {
         this.ageInput.current.value = '';
         this.identityInput.current.value = '';
         DriverServices.addDriverDetails(driver)
-            .then(res => {
-                console.log('Add driver response :: ', res);
-                this.setState({ loading: false });
-                this.props.history.push('/driver');
-            })
-            .catch(error => {
-                this.setState({ submitError: error.message });
-                this.setState({ error: true });
-            })
-
+        .then(res => {
+            this.setState({ loading: false });
+            this.props.history.push('/driver');
+        })
+        .catch(error => {
+            this.setState({ submitError: error.message });
+            this.setState({ error: true });
+        });
     }
 
     render() {
@@ -72,11 +70,11 @@ export default class AddDriver extends Component {
         const { errors, loading, error } = this.state;
         return (
             <div>
-                <div class="container-fluid">
-                    <h3 class="text-center my-3"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add Driver</h3>
+                <div className="container-fluid">
+                    <h3 className="text-center my-3"><i className="fa fa-plus-square-o" aria-hidden="true"></i> Add Driver</h3>
                 </div>
                 <hr/>
-                <div class="container">
+                <div className="container">
                     {
                         !loading && <form onSubmit={this.onSubmit.bind(this)}>
                         <TextInputGroup
@@ -115,7 +113,7 @@ export default class AddDriver extends Component {
                             label="identity"
                             error={errors.identity}
                         />
-                        <input class="btn btn-primary" type="submit" value="Add Driver"></input>
+                        <input className="btn btn-primary" type="submit" value="Add Driver"></input>
                     </form>
                     }
                     <Loading loading={loading && !error} />

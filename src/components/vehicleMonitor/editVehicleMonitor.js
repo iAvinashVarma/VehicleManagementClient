@@ -26,10 +26,8 @@ export default class EditVehicleMonitor extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        console.log("Edit ID: " + id);
         VehicleMonitorServices.getVehicleMonitorData(id)
         .then(res => {
-            console.log('Vehicle Monitor response :: ', res);
             const vehicleMonitor = res.data;
             this.setState({ loading: false });
             if(vehicleMonitor){
@@ -98,7 +96,6 @@ export default class EditVehicleMonitor extends Component {
         this.temperatureCelsiusInput.current.value = '';
         VehicleMonitorServices.editVehicleMonitorDetails(this.props.match.params.id, vehicleMonitor)
         .then(res => {
-            console.log('Edit Vehicle Monitor response :: ', res);
             this.setState({ loading: false });
             this.props.history.push('/vehicleMonitor');
         })
@@ -113,11 +110,11 @@ export default class EditVehicleMonitor extends Component {
         const { errors, loading, error, vehicleName, driverName } = this.state;
         return (
             <div>
-                <div class="container-fluid">
-                    <h3 class="text-center my-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Vehicle Monitor</h3>
+                <div className="container-fluid">
+                    <h3 className="text-center my-3"><i className="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Vehicle Monitor</h3>
                 </div>
                 <hr/>
-                <div class="container">
+                <div className="container">
                     {
                         !loading && <form onSubmit={this.onSubmit.bind(this)}>
                         <div className="form-group">
@@ -164,7 +161,7 @@ export default class EditVehicleMonitor extends Component {
                             label="Temperature Celsius"
                             error={errors.temperatureCelsius}
                         />
-                        <input class="btn btn-primary" type="submit" value="Update Vehicle Monitor"></input>
+                        <input className="btn btn-primary" type="submit" value="Update Vehicle Monitor"></input>
                     </form>
                 }  
                 </div>

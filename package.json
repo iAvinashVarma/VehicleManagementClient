@@ -9,9 +9,10 @@
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
     "react": "^16.4.1",
+    "react-confirm-alert": "^2.6.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1",
     "react-mdl": "^1.11.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {

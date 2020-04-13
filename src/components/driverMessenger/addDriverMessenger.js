@@ -27,7 +27,6 @@ export default class AddDriverMessenger extends Component {
     componentDidMount() {
         DriverServices.getDriverDetails()
         .then(res => {
-            console.log('Driver response :: ', res);
             const drivers = res.data;
             this.setState({ drivers: drivers });
             if(drivers){
@@ -40,7 +39,6 @@ export default class AddDriverMessenger extends Component {
         });
         VehicleServices.getVehicleDetails()
         .then(res => {
-            console.log('Response from server is :: ', res);
             const vehicles = res.data;
             this.setState({ vehicles: vehicles });
             if(vehicles){
@@ -99,24 +97,24 @@ export default class AddDriverMessenger extends Component {
         const { errors, loading, error, vehicles, drivers } = this.state;
         return (
             <div>
-                <div class="container-fluid">
-                    <h3 class="text-center my-3"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add Driver Message</h3>
+                <div className="container-fluid">
+                    <h3 className="text-center my-3"><i className="fa fa-plus-square-o" aria-hidden="true"></i> Add Driver Message</h3>
                 </div>
                 <hr/>
-                <div class="container">
+                <div className="container">
                     {
                         !loading && <form onSubmit={this.onSubmit.bind(this)}>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="sel1">Select Vehicle Name:</label>
-                            <select onChange={this.vehicleSelection} class="form-control">
+                            <select onChange={this.vehicleSelection} className="form-control">
                                 { vehicles.map(item =>(
                                 <option key={item._id} value={item._id}>{item.name}</option>
                                 )) }
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="sel1">Select Driver Name:</label>
-                            <select onChange={this.driverSelection} class="form-control" id="sel1">
+                            <select onChange={this.driverSelection} className="form-control" id="sel1">
                                 { drivers.map(item =>(
                                 <option key={item._id} value={item._id}>{item.name}</option>
                                 )) }
@@ -131,7 +129,7 @@ export default class AddDriverMessenger extends Component {
                             label="Message"
                             error={errors.message}
                         />
-                        <input class="btn btn-primary" type="submit" value="Add Driver Message"></input>
+                        <input className="btn btn-primary" type="submit" value="Add Driver Message"></input>
                     </form>
                 }  
                 </div>

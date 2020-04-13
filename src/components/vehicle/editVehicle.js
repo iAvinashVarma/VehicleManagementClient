@@ -21,10 +21,8 @@ export default class EditVehicle extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        console.log("Edit ID: " + id);
         VehicleServices.getVehicleData(id)
         .then(res => {
-            console.log('Vehicle response :: ', res);
             const vehicle = res.data;
             this.setState({ loading: false });
             if(vehicle){
@@ -57,7 +55,6 @@ export default class EditVehicle extends Component {
         this.registrationNumberInput.current.value = '';
         VehicleServices.editVehicleDetails(this.props.match.params.id, vehicle)
         .then(res => {
-            console.log('Edit vehicle response :: ', res);
             this.setState({ loading: false });
             this.props.history.push('/vehicle');
         })
@@ -72,11 +69,11 @@ export default class EditVehicle extends Component {
         const { errors, loading, error } = this.state;
         return (
             <div>
-                <div class="container-fluid">
-                    <h3 class="text-center my-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Vehicle</h3>
+                <div className="container-fluid">
+                    <h3 className="text-center my-3"><i className="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Vehicle</h3>
                 </div>
                 <hr/>
-                <div class="container">
+                <div className="container">
                 {
                     !loading && <form onSubmit={this.onSubmit.bind(this)}>
                         <TextInputGroup
@@ -97,7 +94,7 @@ export default class EditVehicle extends Component {
                             label="RegistrationNumber"
                             error={errors.registrationNumber}
                         />
-                        <input class="btn btn-info" type="submit" value="Update Vehicle"></input>
+                        <input className="btn btn-info" type="submit" value="Update Vehicle"></input>
                     </form>
                 }           
                 </div>

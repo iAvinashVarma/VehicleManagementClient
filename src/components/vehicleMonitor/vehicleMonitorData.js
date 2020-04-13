@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
 class VehicleMonitorData extends Component {
-  onDeleteClick = (id) => {
-
+  
+  onDeleteVehicleMonitor(vehicleMonitor) {
+      this.props.onDeleteVehicleMonitor(vehicleMonitor);
   }
+
   render() {
     const { _id: id, vehicle, driver, vehicleMonitor } = this.props.data;
     return(
@@ -15,8 +17,8 @@ class VehicleMonitorData extends Component {
           <td>{vehicleMonitor.pressure.pressurePsi}</td>
           <td>{vehicleMonitor.temperature.temperatureCelsius}</td>
           <td>
-              <a class="edit" title="Edit" href={'/vehicleMonitor/edit/' + id} data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-              <a class="delete" title="Delete" href={'/vehicleMonitor/delete/' + id} data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+              <a className="edit" title="Edit" href={'/vehicleMonitor/edit/' + id} data-toggle="tooltip"><i className="material-icons">&#xE254;</i></a>
+              <a className="delete" title="Delete" onClick={this.onDeleteVehicleMonitor.bind(this, this.props.data)} data-toggle="tooltip"><i className="material-icons">&#xE872;</i></a>
           </td>
       </tr>
     )

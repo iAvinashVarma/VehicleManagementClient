@@ -23,10 +23,8 @@ export default class EditDriverMessenger extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        console.log("Edit ID: " + id);
         DriverMessengerServices.getDriverMessengerData(id)
         .then(res => {
-            console.log('DriverMessenger response :: ', res);
             const driverMessenger = res.data;
             this.setState({ loading: false });
             if(driverMessenger){
@@ -60,7 +58,6 @@ export default class EditDriverMessenger extends Component {
         this.messageInput.current.value = '';
         DriverMessengerServices.editDriverMessengerDetails(this.props.match.params.id, driverMessenger)
         .then(res => {
-            console.log('Edit Driver Messenger response :: ', res);
             this.setState({ loading: false });
             this.props.history.push('/driverMessenger');
         })
@@ -75,11 +72,11 @@ export default class EditDriverMessenger extends Component {
         const { errors, loading, error, vehicleName, driverName } = this.state;
         return (
             <div>
-                <div class="container-fluid">
-                    <h3 class="text-center my-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Driver Message</h3>
+                <div className="container-fluid">
+                    <h3 className="text-center my-3"><i className="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Driver Message</h3>
                 </div>
                 <hr/>
-                <div class="container">
+                <div className="container">
                     {
                         !loading && <form onSubmit={this.onSubmit.bind(this)}>
                         <div className="form-group">
@@ -99,7 +96,7 @@ export default class EditDriverMessenger extends Component {
                             label="Message"
                             error={errors.message}
                         />
-                        <input class="btn btn-info" type="submit" value="Update Driver Message"></input>
+                        <input className="btn btn-info" type="submit" value="Update Driver Message"></input>
                     </form>
                 }  
                 </div>

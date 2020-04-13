@@ -42,7 +42,6 @@ export default class AddVehicle extends Component {
         this.registrationNumberInput.current.value = '';
         VehicleServices.addVehicleDetails(vehicle)
         .then(res => {
-            console.log('Add vehicle response :: ', res);
             this.setState({ loading: false });
             this.props.history.push('/vehicle');
         })
@@ -57,11 +56,11 @@ export default class AddVehicle extends Component {
         const { errors, loading, error } = this.state;
         return (
             <div>
-                <div class="container-fluid">
-                    <h3 class="text-center my-3"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add Vehicle</h3>
+                <div className="container-fluid">
+                    <h3 className="text-center my-3"><i className="fa fa-plus-square-o" aria-hidden="true"></i> Add Vehicle</h3>
                 </div>
                 <hr/>
-                <div class="container">
+                <div className="container">
                     {
                         !loading &&  <form onSubmit={this.onSubmit.bind(this)}>
                             <TextInputGroup
@@ -82,7 +81,7 @@ export default class AddVehicle extends Component {
                                 label="RegistrationNumber"
                                 error={errors.registrationNumber}
                             />
-                            <input class="btn btn-primary" type="submit" value="Add Vehicle"></input>
+                            <input className="btn btn-primary" type="submit" value="Add Vehicle"></input>
                         </form>
                     }
                     <Loading loading={loading && !error} />
