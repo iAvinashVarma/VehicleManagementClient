@@ -105,7 +105,7 @@ $ firebase deploy
 
 * Web APIs provides a flexible way to communicate with context-based applications that can interact with the physical world, instead only through the UI.
     * Vehicle Management System is expected to get the data from various devices which would be docked in different locations like Vehicle, Freezer, etcetera. Web API would be a right choice to consider for one of the reason and it supports wide range of IOT devices.
-* React is the one of the modern JavaScript frameworks which allows developer to create large scale web application that cab exchange the data. React provides better performance compared to other JavaScript frameworks.
+* React is one of the modern JavaScript frameworks which allows developer to create large scale web application that can exchange the data. React provides better performance compared to other JavaScript frameworks.
 
 ---
 
